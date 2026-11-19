@@ -1,35 +1,618 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dixie's Automatic Dog Feeder</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <section class="hero">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <h1>Dixie's <em>Dog Feeder</em></h1>
-        <p class="hero-intro">
-          An Arduino-controlled automatic dog feeder
-          designed for my Mechatronics I final project.
-        </p>
-        <p class="student-name">Designed by Kaileigh Hill</p>
+
+<!-- NAVIGATION -->
+<header class="nav-wrap">
+  <nav class="nav">
+
+    <a href="index.html" class="brand">
+      <span class="brand-mark">DM</span>
+      DIXIE'S FEEDER
+    </a>
+
+    <button
+      class="menu-button"
+      onclick="toggleMenu()"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="navLinks"
+      id="menuButton">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
+
+      <div class="sidebar-heading">
+        <div>
+          <p class="eyebrow">MECHATRONICS I</p>
+          <h2>Project <em>Pages.</em></h2>
+        </div>
+
+        <button
+          class="sidebar-close"
+          onclick="toggleMenu()"
+          aria-label="Close menu">
+          &times;
+        </button>
       </div>
-      <div class="hero-visual">
-        <div class="feeder">
-          <div class="feeder-top"></div>
-          <div class="feeder-body">
-            <div class="kibble">DOG FOOD</div>
+
+      <p class="sidebar-label">PROJECT TIMELINE</p>
+
+      <a class="timeline-choice" href="index.html">
+        <span>HOME</span>
+        <strong>Project Overview</strong>
+        <b>&rarr;</b>
+      </a>
+
+      <a class="timeline-choice" href="proposal.html">
+        <span>01</span>
+        <strong>Proposal</strong>
+        <b>&rarr;</b>
+      </a>
+
+      <a class="timeline-choice" href="checkin1.html">
+        <span>02</span>
+        <strong>Check-in 1</strong>
+        <b>&rarr;</b>
+      </a>
+
+      <a class="timeline-choice" href="checkin2.html">
+        <span>03</span>
+        <strong>Check-in 2</strong>
+        <b>&rarr;</b>
+      </a>
+
+      <a class="timeline-choice" href="final.html">
+        <span>04</span>
+        <strong>Final Project</strong>
+        <b>&rarr;</b>
+      </a>
+
+      <p class="sidebar-note">
+        Made for Dixie.
+      </p>
+
+    </div>
+  </nav>
+</header>
+
+<div
+  class="menu-overlay"
+  id="menuOverlay"
+  onclick="toggleMenu()">
+</div>
+
+
+<!-- HOMEPAGE HERO -->
+<section class="hero">
+
+  <div class="hero-grid">
+
+    <div class="hero-copy">
+
+      <p class="eyebrow">
+        <span></span>
+        MECHATRONICS I | FALL 2026
+      </p>
+
+      <h1>
+        Dixie's<br>
+        <em>Dog Feeder.</em>
+      </h1>
+
+      <p class="hero-intro">
+        An Arduino-controlled automatic dog feeder
+        designed to make feeding my dog, Dixie,
+        easier and more consistent.
+      </p>
+
+      <a href="proposal.html" class="primary-button">
+        Explore My Project
+        <span>&rarr;</span>
+      </a>
+
+      <p class="student-name">
+        Designed by Kaileigh Hill
+      </p>
+
+    </div>
+
+
+    <!-- DOG FEEDER ILLUSTRATION -->
+    <div class="hero-visual">
+
+      <span class="decor decor-one">
+        MADE FOR DIXIE
+      </span>
+
+      <span class="decor decor-two">
+        ARDUINO POWERED
+      </span>
+
+      <div class="feeder">
+
+        <div class="feeder-top"></div>
+
+        <div class="feeder-body">
+          <div class="kibble">
+            DOG<br>FOOD
           </div>
-          <div class="feeder-chute"></div>
-          <div class="feeder-bowl">DIXIE MAE</div>
-          <div class="servo">SERVO</div>
+        </div>
+
+        <div class="feeder-chute"></div>
+
+        <div class="feeder-bowl">
+          DIXIE
+        </div>
+
+        <div class="servo">
+          SERVO
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PROJECT HIGHLIGHTS -->
+<section class="metrics">
+
+  <div>
+    <strong>01</strong>
+    <span>
+      ARDUINO<br>
+      CONTROLLER
+    </span>
+  </div>
+
+  <div>
+    <strong>02</strong>
+    <span>
+      SENSOR +<br>
+      SERVO MOTOR
+    </span>
+  </div>
+
+  <div>
+    <strong>03</strong>
+    <span>
+      AUTOMATIC<br>
+      FOOD DISPENSING
+    </span>
+  </div>
+
+</section>
+
+
+<!-- PROJECT OVERVIEW -->
+<section class="project-section">
+
+  <div class="section-heading">
+
+    <div>
+      <p class="eyebrow">
+        <span></span>
+        THE PROJECT
+      </p>
+
+      <h2>
+        Meet the <em>Feeder.</em>
+      </h2>
+    </div>
+
+  </div>
+
+  <div class="project-layout">
+
+    <article class="project-card">
+
+      <span class="card-number">01 / STORAGE</span>
+
+      <div class="card-icon">
+        <div class="icon-container"></div>
+      </div>
+
+      <h3>Food Storage</h3>
+
+      <p>
+        A storage container holds dry dog food
+        and directs it toward the dispensing
+        mechanism.
+      </p>
+
+    </article>
+
+
+    <article class="project-card">
+
+      <span class="card-number">02 / CONTROL</span>
+
+      <div class="card-icon">
+        <div class="icon-arduino">
+          ARDUINO
         </div>
       </div>
+
+      <h3>Arduino Control</h3>
+
+      <p>
+        An Arduino reads a sensor and controls
+        a servo motor to operate the sliding
+        gate mechanism.
+      </p>
+
+    </article>
+
+
+    <article class="project-card">
+
+      <span class="card-number">03 / DISPENSING</span>
+
+      <div class="card-icon">
+        <div class="icon-bowl">
+          DIXIE
+        </div>
+      </div>
+
+      <h3>Automatic Feeding</h3>
+
+      <p>
+        The servo moves a rack-and-pinion
+        sliding gate, allowing food to travel
+        down a chute and into the bowl.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section class="system-section">
+
+  <div class="system-copy">
+
+    <p class="eyebrow">
+      <span></span>
+      MECHATRONIC SYSTEM
+    </p>
+
+    <h2>
+      How It<br>
+      <em>Works.</em>
+    </h2>
+
+    <p>
+      The Arduino receives input from a sensor,
+      processes the information using a control
+      algorithm, and commands the servo motor
+      to open or close the food dispensing gate.
+    </p>
+
+  </div>
+
+  <div class="system-flow">
+
+    <div class="flow-step">
+      <span>01</span>
+      <strong>SENSOR</strong>
+      <small>Input</small>
     </div>
-  </section>
+
+    <div class="flow-arrow">
+      &rarr;
+    </div>
+
+    <div class="flow-step">
+      <span>02</span>
+      <strong>ARDUINO</strong>
+      <small>Control</small>
+    </div>
+
+    <div class="flow-arrow">
+      &rarr;
+    </div>
+
+    <div class="flow-step">
+      <span>03</span>
+      <strong>SERVO</strong>
+      <small>Output</small>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- COMPONENTS -->
+<section class="parts-section">
+
+  <div class="section-heading">
+
+    <div>
+      <p class="eyebrow">
+        <span></span>
+        HARDWARE
+      </p>
+
+      <h2>
+        The <em>Components.</em>
+      </h2>
+    </div>
+
+  </div>
+
+  <div class="parts-grid">
+
+    <div>
+      <strong>Arduino</strong>
+      <span>Main controller</span>
+    </div>
+
+    <div>
+      <strong>Servo Motor</strong>
+      <span>Operates the sliding gate</span>
+    </div>
+
+    <div>
+      <strong>Bowl Detection Sensor</strong>
+      <span>Detects the food bowl</span>
+    </div>
+
+    <div>
+      <strong>Rack-and-Pinion Gate</strong>
+      <span>Controls food release</span>
+    </div>
+
+    <div>
+      <strong>Food Hopper &amp; Chute</strong>
+      <span>Stores and directs food</span>
+    </div>
+
+    <div>
+      <strong>Frame &amp; Electronics</strong>
+      <span>Supports and powers the system</span>
+    </div>
+
+  </div>
+
+
+  <!-- STRETCH GOALS -->
+  <div class="stretch-goals">
+
+    <h3>Stretch Goals</h3>
+
+    <ul>
+      <li>
+        Add a real-time clock (RTC) for
+        scheduled feeding.
+      </li>
+
+      <li>
+        Add a food-level sensor and LED
+        indicator.
+      </li>
+    </ul>
+
+  </div>
+
+</section>
+
+
+<!-- PROJECT TIMELINE -->
+<section class="process-section">
+
+  <div class="section-heading">
+
+    <div>
+      <p class="eyebrow">
+        <span></span>
+        DEVELOPMENT
+      </p>
+
+      <h2>
+        Project <em>Timeline.</em>
+      </h2>
+    </div>
+
+  </div>
+
+  <div class="timeline">
+
+    <article>
+      <a href="proposal.html" class="timeline-number">
+        01
+      </a>
+
+      <div>
+        <h3>Proposal</h3>
+        <p>November 18, 2026</p>
+      </div>
+    </article>
+
+    <article>
+      <a href="checkin1.html" class="timeline-number">
+        02
+      </a>
+
+      <div>
+        <h3>Check-in 1</h3>
+        <p>November 23, 2026</p>
+      </div>
+    </article>
+
+    <article>
+      <a href="checkin2.html" class="timeline-number">
+        03
+      </a>
+
+      <div>
+        <h3>Check-in 2</h3>
+        <p>November 30, 2026</p>
+      </div>
+    </article>
+
+    <article>
+      <a href="final.html" class="timeline-number">
+        04
+      </a>
+
+      <div>
+        <h3>Final Project</h3>
+        <p>December 6, 2026</p>
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- PROJECT RISKS -->
+<section class="risks-section">
+
+  <div>
+    <h2>
+      Design<br>
+      Challenges.
+    </h2>
+  </div>
+
+  <div class="risk-grid">
+
+    <article>
+      <h3>Gate Jamming</h3>
+      <p>
+        Dog food could become stuck in the
+        sliding gate. I will test and adjust
+        the opening and clearances.
+      </p>
+    </article>
+
+    <article>
+      <h3>Servo Strength</h3>
+      <p>
+        The servo may not have enough torque
+        to move the gate. I will test it
+        under different food loads.
+      </p>
+    </article>
+
+    <article>
+      <h3>Portion Consistency</h3>
+      <p>
+        I will test different gate opening
+        durations to improve the consistency
+        of the food dispensed.
+      </p>
+    </article>
+
+    <article>
+      <h3>Sensor Reliability</h3>
+      <p>
+        I will test the sensor readings
+        and adjust the detection threshold
+        to avoid incorrect operation.
+      </p>
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- FINAL SECTION -->
+<section class="contact-section">
+
+  <p class="eyebrow">
+    <span></span>
+    MADE FOR DIXIE
+  </p>
+
+  <h2>
+    A Little Engineering,<br>
+    <em>A Lot of Love.</em>
+  </h2>
+
+  <p>
+    This project combines mechanical design,
+    electronics, and programming to create
+    a useful automatic feeding system for
+    my dog, Dixie.
+  </p>
+
+  <div class="contact-actions">
+
+    <a href="proposal.html"
+       class="primary-button light-button">
+      View My Proposal
+      <span>&rarr;</span>
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <a href="index.html" class="brand">
+    <span class="brand-mark">DM</span>
+    DIXIE'S FEEDER
+  </a>
+
+  <p>
+    KAILEIGH HILL | MECHATRONICS I | FALL 2026
+  </p>
+
+</footer>
+
+
+<!-- MENU FUNCTION -->
+<script>
+
+function toggleMenu() {
+
+  const menu = document.getElementById("navLinks");
+  const overlay = document.getElementById("menuOverlay");
+  const button = document.getElementById("menuButton");
+
+  const isOpen = menu.classList.toggle("open");
+
+  overlay.classList.toggle("open", isOpen);
+  button.setAttribute("aria-expanded", String(isOpen));
+
+}
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    const menu = document.getElementById("navLinks");
+    if (menu.classList.contains("open")) {
+      toggleMenu();
+    }
+  }
+});
+
+</script>
+
 </body>
 </html>
