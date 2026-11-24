@@ -298,30 +298,94 @@
 
   </section>
 
+ 
   <section class="milestone-card">
     <h2>Arduino Programming Progress</h2>
 
     <p>
-      I have started developing and testing
-      the Arduino code that controls the
-      servo motor. The goal of the current
-      code is to open the gate when the
-      button is pressed and close it when
-      the same button is pressed again.
+      I have started developing and testing the Arduino
+      code that controls the servo motor. The current
+      code uses a push button to open and close the
+      sliding gate.
     </p>
 
     <p>
-      I am also working on adjusting the
-      speed and rotation of the servo motor
-      to create a slower and more controlled
+      When the button is pressed, the servo rotates
+      from 0 degrees to 180 degrees to open the gate.
+      When the same button is pressed again, the servo
+      returns to 0 degrees to close the gate.
+    </p>
+
+    <h3>Current Arduino Code</h3>
+
+    <pre style="background-color:#1e1e1e;
+                color:#f8f8f2;
+                padding:20px;
+                border-radius:10px;
+                overflow-x:auto;
+                font-size:14px;
+                line-height:1.6;"><code>#include &lt;Servo.h&gt;
+
+Servo gateServo;
+
+const int servoPin = 9;
+const int buttonPin = 2;
+
+const int closedPosition = 0;
+const int openPosition = 180;
+
+bool gateOpen = false;
+int lastButtonState = HIGH;
+
+void setup() {
+  gateServo.attach(servoPin);
+  pinMode(buttonPin, INPUT_PULLUP);
+
+  gateServo.write(closedPosition);
+}
+
+void loop() {
+  int buttonState = digitalRead(buttonPin);
+
+  if (buttonState == LOW &amp;&amp; lastButtonState == HIGH) {
+
+    gateOpen = !gateOpen;
+
+    if (gateOpen) {
+      gateServo.write(openPosition);
+    } else {
+      gateServo.write(closedPosition);
+    }
+
+    delay(50);
+  }
+
+  lastButtonState = buttonState;
+}</code></pre>
+
+    <h3>Pin Connections</h3>
+
+    <ul>
+      <li><strong>Pin 9:</strong> Servo motor signal</li>
+      <li><strong>Pin 2:</strong> Push button</li>
+      <li><strong>5V:</strong> Servo power for initial testing</li>
+      <li><strong>GND:</strong> Common ground</li>
+    </ul>
+
+    <h3>Future Improvements</h3>
+
+    <p>
+      I plan to continue improving the code by
+      adjusting the speed and rotation of the servo
+      motor to create a slower and more controlled
       movement of the sliding gate.
     </p>
 
     <p>
       Once the basic gate operation is working
-      reliably, I will continue developing
-      the automatic feeding functionality
-      and integrate the bowl detection sensor.
+      reliably, I will integrate the bowl detection
+      sensor and continue developing the automatic
+      feeding functionality.
     </p>
 
   </section>
